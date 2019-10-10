@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const path = require("path");
 
 // body parser
 app.use(express.json({ extended: false }));
@@ -12,8 +11,11 @@ app.get("/", (req, res) => {
 
 app.use("/api/students", require("./routes/api/students"));
 
-const port = process.env.PORT || 5000;
-const hostname = "127.0.0.1";
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}`);
+const port = 8000;
+const host = "127.0.0.1";
+
+//const hostname = "0.0.0.0";
+
+app.listen(port, () => {
+  console.log(`Server running at ${host}:${port}`);
 });
